@@ -1,4 +1,6 @@
-package parcial.com.example;
+package clases;
+
+import javax.lang.model.util.ElementScanner14;
 
 public abstract class Criatura {
     private String nombre;
@@ -39,7 +41,7 @@ public abstract class Criatura {
     }
     
     public boolean estaViva() {
-        if (salud < 0)  System.out.println("Muerto");
         return this.salud > 0;
+        
     }
 }

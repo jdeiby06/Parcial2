@@ -1,5 +1,7 @@
 package parcial.com.example;
 
+import clases.Criatura;
+
 public class Main {
 
     /**
