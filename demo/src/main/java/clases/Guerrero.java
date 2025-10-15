@@ -1,5 +1,6 @@
 package clases;
-import clases.Criatura;
+
+
 
 
 public class Guerrero extends Criatura {

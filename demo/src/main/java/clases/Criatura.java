@@ -1,6 +1,5 @@
 package clases;
 
-import javax.lang.model.util.ElementScanner14;
 
 public abstract class Criatura {
     protected String nombre;

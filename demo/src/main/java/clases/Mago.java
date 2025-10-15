@@ -1,6 +1,6 @@
 package clases;
 import interfaces.Magico;
-import clases.Criatura;
+
 
 public class Mago extends Criatura implements Magico {
     private String hechizos; 
