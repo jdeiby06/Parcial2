@@ -1,0 +1,92 @@
+package parcial.com.example;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+/**
+ * Pruebas unitarias para las clases Criatura, Guerrero, Mago y Arma.
+ * Enfocado en la lógica de ataque y composición.
+ */
+public class CriaturaTest {
+
+    @Test
+    void testCriaturaDefender() {
+        // ARRANGE
+        Criatura dragon = new Dragon("Defensor", 100, 10, "escamas");
+        int dañoEntrante = 30;
+        
+        // ACT
+        int dañoRecibido = dragon.defender(dañoEntrante); // 10% de reducción
+        
+        // ASSERT
+        // Dano esperado = 30 * 0.9 = 27
+        assertEquals(27, dañoRecibido, "El daño debe reducirse en un 10% por la defensa.");
+        // Salud esperada = 100 - 27 = 73
+        assertEquals(73, dragon.getSalud(), "La salud debe ser la inicial menos el daño reducido.");
+    }
+    
+    @Test
+    void testGuerreroAtaqueConArma() {
+        // ARRANGE
+        Arma hacha = new Arma("Hacha de Guerra", 15);
+        Guerrero atacante = new Guerrero("Guerrero", 100, 20, hacha); // Fuerza 20
+        Criatura objetivo = new Dragon("Objetivo", 50, 10, "duras");
+        
+        int danoEsperadoAntesDefensa = 20 + 15; // Fuerza + Daño Adicional = 35
+        int danoFinalEsperado = (int) (danoEsperadoAntesDefensa * 0.9); // 35 * 0.9 = 31
+        
+        // ACT
+        atacante.atacar(objetivo);
+        
+        // ASSERT
+        // Salud esperada = 50 - 31 = 19
+        assertEquals(19, objetivo.getSalud(), 
+                     "El daño del Guerrero debe ser (Fuerza + Daño Arma) menos la defensa del objetivo.");
+        assertNotEquals(50, objetivo.getSalud(), "El objetivo debe haber recibido daño.");
+    }
+
+    @Test
+    void testMagoAtaqueMagico() {
+        // ARRANGE
+        Mago mago = new Mago("Mago Poderoso", 100, 15, "Rayo"); // Fuerza 15
+        Criatura objetivo = new Guerrero("Objetivo", 60, 10, new Arma("Daga", 2));
+        
+        // Lógica del mago: Daño total = Fuerza * 2 = 15 * 2 = 30
+        int dañoEsperadoAntesDefensa = 30;
+        int dañoFinalEsperado = (int) (dañoEsperadoAntesDefensa * 0.9); // 30 * 0.9 = 27
+        
+        // ACT
+        mago.atacar(objetivo);
+        
+        // ASSERT
+        // Salud esperada = 60 - 27 = 33
+        assertEquals(33, objetivo.getSalud(), 
+                     "El daño del Mago debe ser el doble de su fuerza menos la defensa del objetivo.");
+    }
+
+    @Test
+    void testDragonHabilidadVolador() {
+        // ARRANGE
+        Dragon dragon = new Dragon("Dragon Volador", 100, 20, "escamas");
+        
+        // ACT & ASSERT
+        // Probar que los métodos de la interfaz Volador funcionan sin fallar.
+        assertNotNull(dragon.volar());
+        assertNotNull(dragon.aterrizar());
+        assertTrue(dragon.volar().contains("eleva"));
+    }
+    
+    @Test
+    void testCriaturaMuerte() {
+        // ARRANGE
+        Guerrero atacante = new Guerrero("Letal", 100, 1000, new Arma("Espada", 0));
+        Criatura objetivo = new Mago("Víctima", 10, 5, "Fuego");
+        
+        // ACT
+        atacante.atacar(objetivo);
+        
+        // ASSERT
+        assertEquals(0, objetivo.getSalud(), "La salud no debe ser negativa después de un ataque letal.");
+        assertFalse(objetivo.estaViva(), "La criatura debe estar muerta.");
+    }
+}
