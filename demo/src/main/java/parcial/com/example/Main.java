@@ -1,4 +1,8 @@
 package parcial.com.example;
+import clases.Arma;
+import clases.Dragon;
+import clases.Guerrero;
+import clases.Mago;
 
 import clases.Criatura;
 
@@ -52,7 +56,7 @@ public class Main {
 
         // 1. Crear instancias de armas
         Arma espadaLarga = new Arma("Espada Larga", 10);
-        Arma baculoMagico = new Arma("Báculo Arcano", 5);
+        Arma
         
         // 2. Crear instancias de criaturas
         
@@ -90,10 +94,10 @@ public class Main {
         simularBatalla(juanB1, eduardoB1);
         
         // BATALLA 2: Dragon vs Guerrero
-        Dragon smaugB2 = new Dragon("eduardo el mago", 200, 30, "Escamas de Acero");
-        Guerrero conanB2 = new Guerrero("juan el guerrero", 150, 25, espadaLarga);
-        eduardoB2.volar(); // Uso de la interfaz Volador fuera de ataque
-        simularBatalla(eduardoB2, juanB2);
+        Dragon escupefuegoB2 = new Dragon("eduardo el mago", 200, 30, "Escamas de Acero");
+        Guerrero juanB2 = new Guerrero("juan el guerrero", 150, 25, espadaLarga);
+        escupefuegoB2.volar(); // Uso de la interfaz Volador fuera de ataque
+        simularBatalla(escupefuegoB2, juanB2);
 
     }
 }

@@ -1,9 +1,12 @@
 package clases;
-
+import clases.Criatura;
 
 public class Arma {
     private String nombre;
     private int dañoAdicional;
+
+
+    
 
     public Arma(String nombre, int dañoAdicional) {
         this.nombre = nombre;

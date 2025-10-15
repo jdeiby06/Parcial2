@@ -3,9 +3,9 @@ package clases;
 import javax.lang.model.util.ElementScanner14;
 
 public abstract class Criatura {
-    private String nombre;
-    private int salud;
-    private int ataque;
+    protected String nombre;
+    protected int salud;
+    protected int ataque;
 
     public Criatura(String nombre, int salud, int ataque) {
         this.nombre = nombre;
