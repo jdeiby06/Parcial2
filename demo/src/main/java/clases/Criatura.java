@@ -35,9 +35,10 @@ public abstract class Criatura {
         System.out.println(objetivo.getNombre() + " tiene " + objetivo.getSalud() + " puntos de salud restantes.");
     }
     public void defender(int daño) {
-        this.salud -= daño;
-        System.out.println(this.nombre + " se defiende y recibe " + daño + " puntos de daño.");
-        System.out.println(this.nombre + " tiene " + this.salud + " puntos de salud restantes.");
+        // Lógica de defensa simple: 10% de reducción de daño
+        int dañoFinal = (int) (daño * 0.9); 
+        this.salud -= dañoFinal;
+        this.setSalud(this.salud); 
     }
     
     public boolean estaViva() {

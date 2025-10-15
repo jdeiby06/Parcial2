@@ -18,7 +18,7 @@ public class Guerrero extends Criatura {
         
         // Uso de Arma
         System.out.println(this.arma.atacarConArma(objetivo));
-        System.out.println(this.nombre + " golpea con un daño total de " + dañoTotal + " (Base: " + this.fuerza + ").");
+        System.out.println(this.nombre + " golpea con un daño total de " + dañoTotal + " (Base: " + this.ataque + ").");
         
         // Aplicar daño
         objetivo.defender(dañoTotal); 

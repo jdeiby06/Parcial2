@@ -56,7 +56,7 @@ public class Main {
 
         // 1. Crear instancias de armas
         Arma espadaLarga = new Arma("Espada Larga", 10);
-        Arma
+        
         
         // 2. Crear instancias de criaturas
         
@@ -94,7 +94,7 @@ public class Main {
         simularBatalla(juanB1, eduardoB1);
         
         // BATALLA 2: Dragon vs Guerrero
-        Dragon escupefuegoB2 = new Dragon("eduardo el mago", 200, 30, "Escamas de Acero");
+        Dragon escupefuegoB2 = new Dragon("escupefuego", 200, 30, "Escamas de Acero");
         Guerrero juanB2 = new Guerrero("juan el guerrero", 150, 25, espadaLarga);
         escupefuegoB2.volar(); // Uso de la interfaz Volador fuera de ataque
         simularBatalla(escupefuegoB2, juanB2);
